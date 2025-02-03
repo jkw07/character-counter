@@ -15,7 +15,7 @@ function OptionsPanel({
           type="checkbox"
           checked={isLimitEnabled}
           onChange={handleLimitToggle}
-        />
+        />{" "}
         Set Character Limit
       </label>
       {isLimitEnabled && (
@@ -24,12 +24,17 @@ function OptionsPanel({
           value={maxLength}
           onChange={handleMaxLengthChange}
           min="1"
+          className="number-input"
         />
       )}
       {isLimitEnabled && <p>Characters left: {maxLength - text.length}</p>}
       <p>
-        Approx. reading time: {readingTime(text)}{" "}
-        {readingTime(text) > 1 ? "minutes" : "minute"}
+        Approx. reading time:{" "}
+        {readingTime(text) < 1
+          ? "< 1 minute"
+          : readingTime(text) === 1
+          ? "1 minute"
+          : readingTime(text) + " minutes"}
       </p>
     </div>
   );

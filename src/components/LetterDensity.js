@@ -6,11 +6,13 @@ function LetterDensity({ text }) {
       frequency[letter] = frequency[letter] ? frequency[letter] + 1 : 1;
     }
     const totalLetters = letters.length;
-    return Object.entries(frequency).map(([letter, count]) => ({
-      letter,
-      count,
-      density: ((count / totalLetters) * 100).toFixed(2) + "%",
-    }));
+    return Object.entries(frequency)
+      .map(([letter, count]) => ({
+        letter,
+        count,
+        density: ((count / totalLetters) * 100).toFixed(2) + "%",
+      }))
+      .sort((a, b) => b.count - a.count);
   };
 
   return (
@@ -23,6 +25,16 @@ function LetterDensity({ text }) {
               <span>{letter.toUpperCase()}: </span>
               <span>{count} </span>
               <span>({density})</span>
+              <div className="progress">
+                <div
+                  className="progress-bar progress-bar-striped bg-info"
+                  role="progressbar"
+                  style={{ width: density }}
+                  aria-valuenow={density}
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
             </li>
           ))}
         </ul>

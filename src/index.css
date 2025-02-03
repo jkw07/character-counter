@@ -1,14 +1,72 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #0a0a23;
+  color: whitesmoke;
+}
 
+textarea {
+  background-color: #0a0a2300;
+  color: whitesmoke;
+}
+
+main {
+  width: 60%;
+}
+header {
+  padding: 20px 0;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.options {
+  padding: 20px 0;
+}
+
+.options p {
+  padding: 10px 0;
+}
+
+.number-input {
+  padding-left: 5px;
+  margin-left: 15px;
+  width: 120px;
+}
 
 .App {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 }
 
 textarea {
   width: 100%;
   min-height: 200px;
+}
+
+.statistic-panel {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.statistics {
+  height: 70px;
+  width: 200px;
+  border: 2px dotted black;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.letter-density p {
+  font-size: 24px;
+  font-weight: bold;
+  padding-top: 10px;
 }

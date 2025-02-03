@@ -4,17 +4,17 @@ function StatisticsPanel({ text }) {
 
   return (
     <div className="statistic-panel">
-      <div className="statistics">
+      <div className="statistics bg-success bg-gradient">
         <span>{text.length > 0 ? text.length : "0"}</span>
-        <span> Total Characters</span>
+        <div> Total Characters</div>
       </div>
-      <div className="statistics">
+      <div className="statistics bg-danger bg-gradient">
         <span>{text.length > 0 ? wordCount : "0"}</span>
-        <span> Word Count</span>
+        <div> Word Count</div>
       </div>
-      <div className="statistics">
+      <div className="statistics bg-warning bg-gradient">
         <span>{countSentences(text)}</span>
-        <span> Sentence Count</span>
+        <div> Sentence Count</div>
       </div>
     </div>
   );
