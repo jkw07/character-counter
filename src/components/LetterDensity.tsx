@@ -27,11 +27,9 @@ function LetterDensity({ text }: LetterDensityProps) {
       {text.trim().length > 0 ? (
         <ul>
           {calculateLetterDensity(text).map(({ letter, count, density }) => (
-            <li key={letter}>
-              <span>{letter.toUpperCase()}: </span>
-              <span>{count} </span>
-              <span>({density})</span>
-              <div className="progress">
+            <li key={letter} className="letter-item d-flex align-items-center mb-2">
+              <span className="letter me-2">{letter.toUpperCase()}: </span>
+              <div className="progress flex-grow-1">
                 <div
                   className="progress-bar progress-bar-striped bg-info"
                   role="progressbar"
@@ -41,6 +39,8 @@ function LetterDensity({ text }: LetterDensityProps) {
                   aria-valuemax={100}
                 ></div>
               </div>
+              <span className="count me-2">{count} </span>
+              <span className="density me-2">({density})</span>
             </li>
           ))}
         </ul>

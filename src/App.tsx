@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <span>Character Counter</span>
+        <span><i className="fa-solid fa-pen-to-square"></i>{" "}Character Counter</span>
         <h1>Analyze your text in real-time</h1>
       </header>
       <main>
