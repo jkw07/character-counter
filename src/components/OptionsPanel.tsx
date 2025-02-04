@@ -1,11 +1,21 @@
+type OptionsPanelProps = {
+  isLimitEnabled: boolean;
+  maxLength: number;
+  handleLimitToggle: () => void;
+  handleMaxLengthChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  text: string;
+};
+
+
+
 function OptionsPanel({
   isLimitEnabled,
   maxLength,
   handleLimitToggle,
   handleMaxLengthChange,
   text,
-}) {
-  const readingTime = (text) =>
+}: OptionsPanelProps) {
+  const readingTime = (text: string): number =>
     Math.floor(text.trim().split(/\s+/).length / 200);
 
   return (

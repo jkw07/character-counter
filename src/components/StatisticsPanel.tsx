@@ -1,6 +1,10 @@
-function StatisticsPanel({ text }) {
-  const countSentences = (text) => (text.match(/[^.!?]+[.!?]+/g) || []).length;
-  const wordCount = text.trim().split(/\s+/).length;
+type StatisticsPanelProps = {
+  text: string;
+};
+
+function StatisticsPanel({ text }: StatisticsPanelProps) {
+  const countSentences = (text: string): number => (text.match(/[^.!?]+[.!?]+/g) || []).length;
+  const wordCount: number = text.trim().split(/\s+/).length;
 
   return (
     <div className="statistic-panel">

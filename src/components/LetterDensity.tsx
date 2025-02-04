@@ -1,7 +1,13 @@
-function LetterDensity({ text }) {
-  const calculateLetterDensity = (text) => {
+type LetterDensityProps = {
+  text: string;
+};
+
+
+
+function LetterDensity({ text }: LetterDensityProps) {
+  const calculateLetterDensity = (text: string) => {
     const letters = text.toLowerCase().replace(/[^a-z]/g, "");
-    const frequency = {};
+    const frequency: Record<string, number> = {};
     for (const letter of letters) {
       frequency[letter] = frequency[letter] ? frequency[letter] + 1 : 1;
     }
@@ -30,9 +36,9 @@ function LetterDensity({ text }) {
                   className="progress-bar progress-bar-striped bg-info"
                   role="progressbar"
                   style={{ width: density }}
-                  aria-valuenow={density}
-                  aria-valuemin="0"
-                  aria-valuemax="100"
+                  aria-valuenow={parseFloat(density.replace('%', ''))}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
                 ></div>
               </div>
             </li>

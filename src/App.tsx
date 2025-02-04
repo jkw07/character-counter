@@ -5,9 +5,9 @@ import LetterDensity from "./components/LetterDensity";
 import OptionsPanel from "./components/OptionsPanel";
 
 function App() {
-  const [text, setText] = useState("");
-  const [isLimitEnabled, setIsLimitEnabled] = useState(false);
-  const [maxLength, setMaxLength] = useState(100);
+  const [text, setText] = useState<string>("");
+  const [isLimitEnabled, setIsLimitEnabled] = useState<boolean>(false);
+  const [maxLength, setMaxLength] = useState<number>(100);
 
   return (
     <div className="App">
