@@ -35,6 +35,11 @@ h1 {
   width: 120px;
 }
 
+.inline {
+  display: inline;
+  margin-right: 5px;
+}
+
 .App {
   display: flex;
   flex-direction: column;

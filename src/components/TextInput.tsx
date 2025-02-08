@@ -6,7 +6,7 @@ type TextInputProps = {
 };
 
 
-function TextInput({ text, handleChange, isLimitEnabled, maxLength }: TextInputProps) {
+export const TextInput = ({ text, handleChange, isLimitEnabled, maxLength }: TextInputProps) => {
   return (
     <textarea
       placeholder="Start typing here... (or enter your text)"
@@ -17,4 +17,3 @@ function TextInput({ text, handleChange, isLimitEnabled, maxLength }: TextInputP
   );
 }
 
-export default TextInput;

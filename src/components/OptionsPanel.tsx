@@ -6,18 +6,27 @@ type OptionsPanelProps = {
   text: string;
 };
 
+const readingTime = (text: string): string => {
+  const wordsPerMinute = 200;
+  const words = text.trim().split(/\s+/).length;
+  const minutes = Math.floor(words / wordsPerMinute);
+  if (minutes < 1) {
+    return "< 1 minute";
+  } else if (minutes === 1) {
+    return "1 minute";
+  } else {
+    return `${minutes} minutes`;
+  }
+}
 
 
-function OptionsPanel({
+export const OptionsPanel = ({
   isLimitEnabled,
   maxLength,
   handleLimitToggle,
   handleMaxLengthChange,
   text,
-}: OptionsPanelProps) {
-  const readingTime = (text: string): number =>
-    Math.floor(text.trim().split(/\s+/).length / 200);
-
+}: OptionsPanelProps) => {
   return (
     <div className="options">
       <label>
@@ -38,16 +47,10 @@ function OptionsPanel({
         />
       )}
       {isLimitEnabled && <p>Characters left: {maxLength - text.length}</p>}
-      <p>
-        Approx. reading time:{" "}
-        {readingTime(text) < 1
-          ? "< 1 minute"
-          : readingTime(text) === 1
-          ? "1 minute"
-          : readingTime(text) + " minutes"}
-      </p>
+      <div>
+        <p className="inline">Approx. reading time:</p>
+        <p className="inline">{readingTime(text)}</p>
+      </div>    
     </div>
   );
 }
-
-export default OptionsPanel;
