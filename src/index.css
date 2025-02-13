@@ -10,8 +10,10 @@ textarea {
 }
 
 main {
-  width: 60%;
+  width: 80%;
+  max-width: 800px;
 }
+
 header {
   padding: 20px 0;
 }
@@ -54,7 +56,6 @@ textarea {
 
 .letter-density p {
   font-size: 24px;
-  font-weight: bold;
   padding-top: 10px;
 }
 
@@ -68,15 +69,26 @@ header span {
   font-weight: lighter;
   font-style: italic;
   display: block;
-  margin-bottom: 30px;
+  margin: 10px 0;
 }
 
-@media screen and (max-width: 768px) {
-  main {
-    width: 80%;
-  }
+@media (max-width: 768px) {
   .statistic-card {
     font-size: 18px;
   }
-  
+}
+
+@media (max-width: 500px) {
+  header h1 {
+    font-size: 26px;
+  }
+  .options {
+    padding: 10px;
+  }
+  .statictic-card, .letter-density p {
+    font-size: 16px;
+  }
+  .p-4 {
+    padding: 2px !important;
+  }
 }

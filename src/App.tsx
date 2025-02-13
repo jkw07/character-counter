@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Header } from "./components/Header";
 import {TextInput} from "./components/TextInput";
 import {StatisticsPanel} from "./components/StatisticsPanel";
@@ -10,7 +10,17 @@ function App() {
   const [isLimitEnabled, setIsLimitEnabled] = useState<boolean>(false);
   const [maxLength, setMaxLength] = useState<number>(100);
 
-//handleTextInput osobno - funkcje osobno
+  const handleLimitToggle = () => {
+    setIsLimitEnabled(!isLimitEnabled)
+  }
+
+  const handleMaxLengthChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setMaxLength(parseInt(e.target.value) || 100)
+  }
+
+  const handleTextInput = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setText(e.target.value)
+  }
 
   return (
     <div className="App">
@@ -18,17 +28,15 @@ function App() {
       <main>
         <TextInput
           text={text}
-          handleChange={(e) => setText(e.target.value)}
+          handleChange={handleTextInput}
           isLimitEnabled={isLimitEnabled}
           maxLength={maxLength}
         />
         <OptionsPanel
           isLimitEnabled={isLimitEnabled}
           maxLength={maxLength}
-          handleLimitToggle={() => setIsLimitEnabled(!isLimitEnabled)}
-          handleMaxLengthChange={(e) =>
-            setMaxLength(parseInt(e.target.value) || 100)
-          }
+          handleLimitToggle={handleLimitToggle}
+          handleMaxLengthChange={handleMaxLengthChange}
           text={text}
         />
         <StatisticsPanel text={text} />

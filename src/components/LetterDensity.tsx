@@ -7,7 +7,7 @@ type LetterDensityProps = {
 export const LetterDensity = ({ text }: LetterDensityProps) => {
   return (
     <div className="letter-density">
-      <p>Letter Density</p>
+      <p><strong>Letter Density</strong></p>
       {text.trim().length > 0 ? 
         <LetterDensityList text={text}/>
       : 
